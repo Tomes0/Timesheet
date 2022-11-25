@@ -1,4 +1,4 @@
-package com.example.timesheet;
+package com.timesheet.main;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
