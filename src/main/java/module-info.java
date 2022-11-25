@@ -8,6 +8,8 @@ module Timesheet {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires java.sql;
+    requires lombok;
+    requires opencsv;
 
     opens com.timesheet.main to javafx.fxml;
     exports com.timesheet.main;
