@@ -14,17 +14,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CsvUtility {
-    static final String[] header = {"Date", "Arrival time", "Departure time", "Hours worked", "Lunch-break"};
+    final String[] header = {"Date", "Arrival time", "Departure time", "Hours worked", "Lunch-break"};
 
     //private static final Path path = Paths.get("src/main/java/org/example/csv/hours.csv");
-    private static Path path;
+    private Path path;
 
-    @SneakyThrows
-    public CsvUtility() {
-        path = Paths.get(ClassLoader.getSystemResource("csv/hours.csv").toURI());
+
+    public CsvUtility(Path path) {
+        this.path = path;
     }
 
-    public static List<String[]> readAllLines() throws Exception {
+    public List<String[]> readAllLines() throws Exception {
         try (Reader reader = Files.newBufferedReader(path)) {
             CSVParser parser = new CSVParserBuilder()
                     .withSeparator(',')
@@ -32,7 +32,7 @@ public class CsvUtility {
                     .build();
             try (
                     CSVReader csvReader = new CSVReaderBuilder(reader)
-                    .withSkipLines(1)
+                    .withSkipLines(0)
                     .withCSVParser(parser)
                     .build()
             ) {
@@ -41,7 +41,7 @@ public class CsvUtility {
         }
     }
 
-    public static void writeAllLines(List<String[]> lines) throws Exception {
+    public void writeAllLines(List<String[]> lines) throws Exception {
         try (
                 CSVWriter writer = new CSVWriter(
                         new FileWriter(path.toString()),
