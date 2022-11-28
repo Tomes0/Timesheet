@@ -3,7 +3,7 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
-        <entry key="C:\Users\kutlak.tamas\Documents\Oraszamolo\src\main\java\org\example\csv\hours.csv">
+        <entry key="\src\main\java\com\timesheet\utility\csv\hours.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
